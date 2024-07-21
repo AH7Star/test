@@ -7,51 +7,28 @@ class CounterScreen extends StatefulWidget {
   @override
   State<CounterScreen> createState() => _CounterScreenState();
 }
-
 class _CounterScreenState extends State<CounterScreen> {
-  TextEditingController number1Controller = TextEditingController();
+  int _counter = 0;
 
-  TextEditingController number2Controller = TextEditingController();
-
-  int sum = 0;
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('sum is : $sum'),
-            MyFormField(
-              controller: number1Controller,
-              hintText: 'Enter num 1',
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            MyFormField(
-              controller: number2Controller,
-              hintText: 'Enter num 2',
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                final num1 = int.parse(number1Controller.text);
-                final num2 = int.parse(number2Controller.text);
-                sum = num1 + num2;
-                setState(() {});
-              },
-              child: Text('Add'),
-            ),
-          ],
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Counter: $_counter', style: TextStyle(fontSize: 24)),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: _incrementCounter,
+            child: Text('Increase'),
+          ),
+        ],
       ),
     );
   }

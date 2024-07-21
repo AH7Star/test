@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "[DEV] yuno",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor", "dev",
+                "--dart-define-from-file",
+                ".env"
+            ]
+        },
+        {
+            "name": "[DEV] yuno: Profile",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor", "dev", "--profile",
+                "--dart-define-from-file",
+                ".env"
+            ]
+        },
+        {
+            "name": "[PROD] yuno",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor", "prod",
+                "--dart-define-from-file",
+                ".env"
+            ]
+        },
+        {
+            "name": "[PROD] yuno: Profile",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor", "prod", "--profile"
+            ]
+        }
+       
+    ]
+}
